@@ -1,6 +1,4 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
  * @flow
  */
 
@@ -11,6 +9,7 @@ import {
   Text,
   View
 } from 'react-native'
+import { Testy } from '../components/testComp'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -19,19 +18,13 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 })
 
-export default class App extends Component<{}> {
+export default class Main extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          The majestic snow goose has arrived.
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Testy displayText={'The majestic snow goose has arrived.'} heading={true}/>
+        <Testy displayText={'To get started, edit app/index.js'}/>
+        <Testy displayText={instructions}/>
       </View>
     )
   }
@@ -43,15 +36,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 })
