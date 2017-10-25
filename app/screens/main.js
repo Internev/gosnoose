@@ -10,6 +10,7 @@ import {
   View
 } from 'react-native'
 import { Testy } from '../components/testComp'
+import { AnimSpin, AnimExpand } from '../components/testAnim'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -19,12 +20,18 @@ const instructions = Platform.select({
 })
 
 export default class Main extends Component<{}> {
+  componentDidMount () {
+    console.log('\n\n********\n\ncomponent mounted\n\n********\n\n')
+    console.log('AnimSpin:', AnimSpin)
+  }
   render() {
     return (
       <View style={styles.container}>
         <Testy displayText={'The majestic snow goose has arrived.'} heading={true}/>
         <Testy displayText={'To get started, edit app/index.js'}/>
         <Testy displayText={instructions}/>
+        <AnimSpin />
+        <AnimExpand />
       </View>
     )
   }
