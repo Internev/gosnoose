@@ -2,14 +2,14 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import Main from './screens/main'
+// import React, { Component } from 'react'
+import { StackNavigator } from 'react-navigation'
+import Main from './screens/Main'
+import Second from './screens/Second'
 
+const App = StackNavigator({
+  Home: { screen: Main },
+  Second: { screen: Second },
+})
 
-export default class App extends Component<{}> {
-  render() {
-    return (
-        <Main />
-    )
-  }
-}
+export default App

@@ -15,36 +15,40 @@ import styles from './styles'
 export default class AnimExpand extends Component<{}> {
   constructor () {
     super()
-    this.boxWidth = new Animated.Value(0)
+    this.boxSize = new Animated.Value(0)
   }
   componentDidMount () {
     this.expando()
   }
   expando () {
-    this.boxWidth.setValue(0)
+    this.boxSize.setValue(0)
     Animated.sequence([
       Animated.timing(
-        this.boxWidth,
+        this.boxSize,
         {
           toValue: 1,
           duration: 2000,
-          easing: Easing.linear
+          easing: Easing.bounce,
         }
       ),
       Animated.timing(
-        this.boxWidth,
+        this.boxSize,
         {
           toValue: 0,
-          duration: 1000,
-          easing: Easing.linear
+          duration: 2000,
+          easing: Easing.bounce,
         }
       )
     ]).start(() => this.expando())
   }
   render () {
-    const expando = this.boxWidth.interpolate({
+    const widthAnim = this.boxSize.interpolate({
       inputRange: [0, 1],
-      outputRange: [20, 400],
+      outputRange: [100, 400],
+    })
+    const heightAnim = this.boxSize.interpolate({
+      inputRange: [0, 1],
+      outputRange: [400, 100],
     })
     return (
 
@@ -53,7 +57,8 @@ export default class AnimExpand extends Component<{}> {
             styles.box,
             {
               backgroundColor: '#ED10AB',
-              width: expando
+              width: widthAnim,
+              height: heightAnim,
             }
           ]}
           >

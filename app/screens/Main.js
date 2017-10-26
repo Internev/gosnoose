@@ -7,10 +7,11 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Button,
 } from 'react-native'
 import { Testy } from '../components/testComp'
-import { AnimSpin, AnimExpand } from '../components/testAnim'
+import { AnimSpin } from '../components/testAnim'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -24,14 +25,21 @@ export default class Main extends Component<{}> {
     console.log('\n\n********\n\ncomponent mounted\n\n********\n\n')
     console.log('AnimSpin:', AnimSpin)
   }
+  static navigationOptions = {
+    title: 'Gosnoose Main',
+  }
   render() {
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
         <Testy displayText={'The majestic snow goose has arrived.'} heading={true}/>
         <Testy displayText={'To get started, edit app/index.js'}/>
         <Testy displayText={instructions}/>
         <AnimSpin />
-        <AnimExpand />
+        <Button
+          onPress={() => navigate('Second')}
+          title='Go to second page'
+        />
       </View>
     )
   }
