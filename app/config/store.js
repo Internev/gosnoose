@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
+import appReducer from '../reducers/index'
 
-// Barebones store - just need to add reducer
-const store = createStore()
+const store = createStore(appReducer)
 
 export default store
