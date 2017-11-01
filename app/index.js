@@ -2,7 +2,6 @@
  * @flow
  */
 
-// import React, { Component } from 'react'
 import { StackNavigator } from 'react-navigation'
 import Main from './screens/Main'
 import Second from './screens/Second'
