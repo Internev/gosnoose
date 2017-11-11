@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
+import navigation from './navigation'
 
-const appReducer = combineReducers()
+const appReducer = combineReducers({navigation})
 
 export default appReducer
