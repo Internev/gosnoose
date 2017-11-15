@@ -1,6 +1,4 @@
-/**
- * @flow
- */
+// @flow
 
 import React, { Component } from 'react';
 import {
@@ -20,31 +18,6 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 })
 
-export default class Main extends Component<{}> {
-  componentDidMount () {
-    console.log('\n\n********\n\ncomponent mounted\n\n********\n\n')
-    console.log('AnimSpin:', AnimSpin)
-  }
-  static navigationOptions = {
-    title: 'Gosnoose Main',
-  }
-  render() {
-    const { navigate } = this.props.navigation
-    return (
-      <View style={styles.container}>
-        <Testy displayText={'The majestic snow goose has arrived.'} heading={true}/>
-        <Testy displayText={'To get started, edit app/index.js'}/>
-        <Testy displayText={instructions}/>
-        <AnimSpin />
-        <Button
-          onPress={() => navigate('Second')}
-          title='Go to second page'
-        />
-      </View>
-    )
-  }
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -53,3 +26,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
 })
+
+const Main = ({ navigation }) => (
+  <View style={styles.container}>
+    <Testy
+      displayText={'The majestic snow goose has arrived.'}
+      heading={true}
+    />
+    <Testy displayText={'To get started, edit app/index.js'}/>
+    <Testy displayText={instructions}/>
+    <AnimSpin />
+    <Button
+      onPress={() => navigation.dispatch({
+        type: 'SECOND_SCREEN'
+      })}
+      title='Go to second page'
+    />
+  </View>
+)
+
+Main.navigationOptions = {
+  title: 'Gosnoose Main'
+}
+
+export default Main
