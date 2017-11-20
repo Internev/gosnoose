@@ -10,10 +10,12 @@ import {
 
 import Main from './screens/Main'
 import Second from './screens/Second'
+import Login from './screens/Login'
 
 export const AppNavigator = StackNavigator({
   Home: { screen: Main },
   Second: { screen: Second },
+  Login: { screen: Login }
 })
 
 const AppWithNavigation = ({ dispatch, navigation }) => (

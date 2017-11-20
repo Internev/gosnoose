@@ -31,16 +31,22 @@ const Main = ({ navigation }) => (
   <View style={styles.container}>
     <Testy
       displayText={'The majestic snow goose has arrived.'}
-      heading={true}
+      heading
     />
-    <Testy displayText={'To get started, edit app/index.js'}/>
-    <Testy displayText={instructions}/>
+    <Testy displayText={'To get started, edit app/index.js'} />
+    <Testy displayText={instructions} />
     <AnimSpin />
     <Button
       onPress={() => navigation.dispatch({
         type: 'SECOND_SCREEN'
       })}
       title='Go to second page'
+    />
+    <Button
+      onPress={() => navigation.dispatch({
+        type: 'LOGIN_SCREEN'
+      })}
+      title='Log in here'
     />
   </View>
 )

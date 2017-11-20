@@ -13,6 +13,11 @@ const navigation = (state = initialNavState, action) => {
         NavigationActions.navigate({routeName: 'Second'}),
         state
       )
+    case 'LOGIN_SCREEN':
+      return AppNavigator.router.getStateForAction(
+        NavigationActions.navigate({routeName: 'Login'}),
+        state
+      )
     default:
       return AppNavigator
         .router
